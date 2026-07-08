@@ -31,7 +31,11 @@ echo "Allowing Jenkins port 8080 through firewall..."
 sudo ufw allow 8080
 sudo ufw reload
 
+# Get server IP
+SERVER_IP=$(hostname -I | awk '{print $1}')
+
 echo "Jenkins installation complete!"
-echo "Access Jenkins at: http://<your_server_ip>:8080"
+echo "Access Jenkins at: http://$SERVER_IP:8080"
+echo "👉 Click here: [http://$SERVER_IP:8080](http://$SERVER_IP:8080)"
 echo "Initial admin password:"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
